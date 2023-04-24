@@ -3,7 +3,8 @@ export const fetchdata = async (chat) => {
         const response = await fetch('https://chatgpt-server-8x5r.vercel.app/', {
             method: 'POST',
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "Authorization": `Bearer ${process.env.API_KEY}`
             },
             body: JSON.stringify({
                 message : chat.map((message) => message.message).join("\n")
